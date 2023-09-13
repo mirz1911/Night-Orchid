@@ -3,6 +3,7 @@ import random
 import discord
 import discord.ext
 from dotenv import load_dotenv
+from scanner import program
 
 print ("Starting......")
 
@@ -60,5 +61,10 @@ async def spin(ctx):
         await ctx.send(f'Nice Try')
         return
         
-        
+@bot.slash_command(name = 'scan', description = 'provide ip address scan results')
+async def scan(ctx, ip):
+    answer = program(ip)
+    await ctx.respond(answer)
+
+
 bot.run(TOKEN)
