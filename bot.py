@@ -5,6 +5,7 @@ import discord
 import discord.ext
 from dotenv import load_dotenv
 from scanner import program
+from ping import doping
 
 print ("Starting......")
 
@@ -76,6 +77,11 @@ async def scan(ctx, ip):
     await ctx.send(f'Gathering information Dump...')
     await ctx.send(f'Sending...')
     await ctx.send(answer)
+
+@bot.slash_command(name = 'ping', description = 'initiate a ping request')
+async def ping(ctx, host):
+    answer = doping(host)
+    await ctx.respond(answer)
 
 
 bot.run(TOKEN)
