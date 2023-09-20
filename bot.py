@@ -1,4 +1,5 @@
 import os
+import asyncio
 import random
 import discord
 import discord.ext
@@ -64,7 +65,17 @@ async def spin(ctx):
 @bot.slash_command(name = 'scan', description = 'provide ip address scan results')
 async def scan(ctx, ip):
     answer = program(ip)
-    await ctx.respond(answer)
+    x = ['Talking with Katheryne...', 'Searching Mondstatd library...', 'Talking with Ella Musk...', 'Searching the Akasha terminal...', 'Gathering info from the Fatui...']
+    a = random.choice(x)
+    await ctx.respond(f'Accessing Qixing database...')
+    await ctx.send(f'...')
+    asyncio.sleep(2)
+    await ctx.send(a)
+    await ctx.send(f'...')
+    asyncio.sleep(2)
+    await ctx.send(f'Gathering information Dump...')
+    await ctx.send(f'Sending...')
+    await ctx.send(answer)
 
 
 bot.run(TOKEN)
