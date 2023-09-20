@@ -81,7 +81,7 @@ async def scan(ctx, ip):
 @bot.slash_command(name = 'ping', description = 'initiate a ping request')
 async def ping(ctx, host):
     answer = doping(host)
-    await ctx.respond(answer)
-
+    await ctx.respond(f'Pinging...')
+    await ctx.send(answer)
 
 bot.run(TOKEN)
