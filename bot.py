@@ -84,4 +84,9 @@ async def ping(ctx, host):
     await ctx.respond(f'Pinging...')
     await ctx.send(answer)
 
+@bot.slash_command(name = 'post', description = 'post your original content')
+async def post(ctx, file: discord.Attachment, title):
+    await ctx.respond(f'{file} {title} by: {ctx.author.id}')
+
+
 bot.run(TOKEN)
