@@ -86,7 +86,9 @@ async def ping(ctx, host):
 
 @bot.slash_command(name = 'post', description = 'post your original content')
 async def post(ctx, file: discord.Attachment, title):
-    await ctx.respond(f'{file} {title} by: {ctx.author.id}')
+    await ctx.respond(f'{file}')
+    message= await ctx.send(f'{title} by: {ctx.author.mention}')
+    await message.add_reaction("👍")
 
 
 bot.run(TOKEN)
